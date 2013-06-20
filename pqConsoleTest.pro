@@ -23,8 +23,7 @@ else:unix: LIBS += -L$$OUT_PWD/../pqConsole/ -lpqConsole
 INCLUDEPATH += $$PWD/../pqConsole
 DEPENDPATH += $$PWD/../pqConsole
 
-RESOURCES += \
-    pqConsoleTest.qrc
+RESOURCES +=
 
 unix:!symbian {
     # because SWI-Prolog is built from source
