@@ -20,7 +20,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 
 #if 0
 
@@ -69,7 +69,7 @@ PREDICATE(listq, 1) {
 PREDICATE(newq, 2) {
     int id = QMetaType::type(A1);
     if (id != 0) {
-        A2 = QMetaType::construct(id);
+        //A2 = QMetaType::construct(id);
         return TRUE;
     }
     return FALSE;

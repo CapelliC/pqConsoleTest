@@ -4,11 +4,14 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = pqConsoleTest
 TEMPLATE = app
 
+# please, not obsolete compiler
+QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
         mainwindow.cpp
@@ -29,6 +32,11 @@ unix:!symbian {
     # because SWI-Prolog is built from source
     CONFIG += link_pkgconfig
     PKGCONFIG += swipl
+}
+windows {
+    SwiPl = "C:\Program Files\pl"
+    INCLUDEPATH += $$SwiPl\include
+    LIBS += -L$$SwiPl\bin -lswipl
 }
 
 OTHER_FILES += \
