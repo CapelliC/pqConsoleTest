@@ -45,10 +45,23 @@ int main(int argc, char *argv[]) {
 
 #elif 1
 
+// run GUI from shared library, extended with locally defined builtins
+//
 #include <QMetaType>
 #include <QMetaObject>
 #include "PREDICATE.h"
-#include "pqConsole.h"
+
+#if 0
+    #include "pqConsole.h"
+    int main(int argc, char *argv[]) {
+        return pqConsole().runDemo(argc, argv);
+    }
+#else
+    #include "pqApplication.h"
+    int main(int argc, char *argv[]) {
+        return pqApplication(argc, argv).exec();
+    }
+#endif
 
 // collect all meta-instantiable Qt types
 //
@@ -73,12 +86,6 @@ PREDICATE(newq, 2) {
         return TRUE;
     }
     return FALSE;
-}
-
-// run GUI from shared library, extended with locally defined builtins
-//
-int main(int argc, char *argv[]) {
-    return pqConsole().runDemo(argc, argv);
 }
 
 #endif
